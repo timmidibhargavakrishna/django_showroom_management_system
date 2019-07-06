@@ -1,0 +1,171 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bike ShowRoom</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/static/css/static.css" /> 
+    <script>
+        $(document).ready(function(){
+            $('.insurance_type option[value={{ res.insurance_type }}]').attr('selected','selected');
+    });
+    </script>
+<style>
+  #bg{
+    background-size: 1400px 750px;
+    background-repeat: no-repeat;
+    background-position: top;
+    background-attachment: fixed;
+}
+
+.dropbtn {
+      background-color: #4CAF50;
+      color: white;
+      padding: 16px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .dropdown {
+      position: relative;
+      display: inline-block;
+    }
+    
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: #f9f9f9;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+    }
+    
+    h1 {
+  text-shadow: 2px 2px rgb(0, 255, 255);
+}
+    .dropdown-content a {
+      color: black;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+    }
+
+    tr{
+      color: rgb(187, 127, 255);
+    }
+    
+
+    .dropdown-content a:hover {background-color: #f1f1f1;}
+    .dropdown:hover .dropdown-content {display: block;}
+    .dropdown:hover .dropbtn {background-color: #3e8e41;}
+    
+</style>
+    
+</head>
+<body id="bg" style="background-image:url({% static 'images/bike.jpg' %})" >
+    <div class="container" >
+    <header class="row">
+        <nav class="navbar navbar-expand-sm ">
+        <div class="span6 logo">
+          <h1 style="color:rgb(212, 0, 255);" >VEHICLE SHOWROOM MANAGEMENT SYSTEM</h1>
+        </div>
+
+        
+        <div class="span6">
+          <div class="row" style="right:0;">
+            <div class="links pull-right">&nbsp &nbsp &nbsp &nbsp
+              <a href="{% url 'home' %}">Home</a> |
+              <a href="{% url 'admin:index' %}">Admin</a> |
+              <a href="{% url 'register' %}">Registation</a>|
+              <a href="{% url 'login' %}">login</a>
+            </div>
+          </div>
+        </div>
+        </nav>
+      </header>
+    </div>
+    <nav class="navbar navbar-expand-sm ">
+<div class="container">
+    
+    <div class="dropdown" style="float:left;">
+    <button class="dropbtn">Bike</button>
+    <div class="dropdown-content" style="left:0;">
+      <a class="btn btn-warning" href="{% url 'show_add_bike' %}">Add Bike</a>
+      <a class="btn btn-warning" href="{% url 'show_bike' %}">Edit Bike</a>
+      <a class="btn btn-warning" href="{% url 'show_search_bike' %}">Search Bike</a>
+    
+  </div>
+</div>
+
+<div class="dropdown" style="float:left;">
+    <button class="dropbtn">Booking</button>
+    <div class="dropdown-content" style="left:0;">
+    
+      <a class="btn btn-warning" href="{% url 'show_add_booking' %}">Add Booking</a>
+      <a class="btn btn-warning" href="{% url 'show_booking' %}">Edit Booking</a>
+      <a class="btn btn-warning" href="{% url 'show_search_booking' %}">Search Booking</a>
+    
+  </div>
+</div>
+
+<div class="dropdown" style="float:left;">
+    <button class="dropbtn">Repair</button>
+    <div class="dropdown-content" style="left:0;">
+      <a class="btn btn-warning" href="{% url 'show_add_repair_bike' %}">Add Repair Bike</a>
+      <a class="btn btn-warning" href="{% url 'show_repair_bike' %}">Edit Repair Bike</a>
+      <a class="btn btn-warning" href="{% url 'show_search_repair_bike' %}">Search Repair Bike</a>
+    
+  </div>
+</div>
+
+<div class="dropdown" style="float:left;">
+    <button class="dropbtn">Insurance</button>
+    <div class="dropdown-content" style="left:0;">
+      <a class="btn btn-warning" href="{% url 'show_add_insurance' %}">Add Insurance</a>
+      <a class="btn btn-warning" href="{% url 'show_insurance' %}">Edit Insurance</a>
+      <a class="btn btn-warning" href="{% url 'show_search_insurance' %}">Search Insurance</a>
+    
+  </div>
+</div>
+
+<div class="dropdown" style="float:left;">
+    <button class="dropbtn">Customer</button>
+    <div class="dropdown-content" style="left:0;">
+      <a class="btn btn-warning" href="{% url 'show_add_customer' %}">Add Customer</a>
+      <a class="btn btn-warning" href="{% url 'show_customer' %}">Edit Customer</a>
+      <a class="btn btn-warning" href="{% url 'show_search_customer' %}">Search Customer</a>
+    
+  </div>
+</div>
+
+<div class="dropdown" style="float:left;">
+    <button class="dropbtn">Payment</button>
+    <div class="dropdown-content" style="left:0;">
+      <a class="btn btn-warning" href="{% url 'show_add_payment' %}">Add Payment</a>
+      <a class="btn btn-warning" href="{% url 'show_payment' %}">Edit Payment</a>
+      <a class="btn btn-warning" href="{% url 'show_search_payment' %}">Search Payment</a>
+    
+  </div>
+</div>
+</div>
+    </nav>
+  </div>
+  <br>
+  <br>
+  {% block body %}
+
+
+  {% endblock %}
+
+  {% block content %}
+
+  {% endblock %}
+</body>
+</html>

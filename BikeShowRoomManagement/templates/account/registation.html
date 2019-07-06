@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block body %}
+    <div align="center">
+        <h3>Add customer</h3>
+    </div>
+
+    <div align="center">
+        <form action="{% url 'add_customer' %}" method="post">
+            {% csrf_token %}
+            <table border="0">
+                <tr>
+                    <td>Customer Id :</td>
+                    <td><input type="text" name="customer_id" value="{{ res.ustomer_id }}" placeholder="ustomer_id " required></td>
+                </tr>
+
+                <tr>
+                    <td>first_name :</td>
+                    <td><input type="text" name="first_name" value='{{ res.first_name }}' placeholder="first_name " required></td>
+                </tr>
+                <tr>
+                    <td>fist_name :</td>
+                    <td><input type="text" name="last_name" value='{{ res.last_name }}' placeholder="last_name " required></td>
+                </tr>
+                <tr>
+                    <td>email_id:</td>
+                    <td><input type="text" name="email" value='{{ res.email }}' placeholder="email " required></td>
+                </tr>            
+                    
+               
+
+                <tr>
+                    <td>joining Date :</td>
+                    <td><input type="date" name="joining_date" value='{{ res.joining_date }}' required></td>
+                </tr>
+
+
+                <tr>
+                    <td>address :</td>
+                    <td><textarea name="address" cols="25" rows="6" placeholder="address Description">{{ res.address }}</textarea></td>
+                </tr>
+                <td>phon Number :</td>
+                    <td><input type="text" name="phon_number" value='{{ res.phon_number }}' placeholder="phon_number " required></td>
+                </tr>
+
+                <tr align="center">
+                    <td colspan='2'><input type="submit" value="Add customer" class="btn btn-primary"></td>
+                </tr>
+            </table>
+        </form>
+    </div>
+{% endblock %}

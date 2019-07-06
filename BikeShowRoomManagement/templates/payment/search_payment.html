@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block body %}
+    <form action="{% url 'search_payment' %}" method="post">
+        {% csrf_token %}
+        <input type="number" name="pid" placeholder="Search Payment" required>
+        <input type="submit" value="Serarch Payment">
+    </form>
+
+    {% if res %}
+        <div>
+            <table border="1">
+                <thead>Payment Deatails</thead>
+                <tr>
+                    <td>Payment Id : </td>
+                    <td>{{ res.payment_id }}</td>
+                </tr>
+
+                <tr>
+                    <td>Payment Customer Id : </td>
+                    <td>{{ res.payment_customer_id }}</td>
+                </tr>
+
+                <tr>
+                    <td>Payment Date : </td>
+                    <td>{{ res.payment_date }}</td>
+                </tr>
+
+                <tr>
+                    <td>Payment Bill :</td>
+                    <td>{{ res.payment_bill }}</td>
+                </tr>
+
+                <tr>
+                    <td>Payment Type :</td>
+                    <td>{{ res.payment_type }}</td>
+                </tr>
+
+                <tr>
+                    <td>Payment Description : </td>
+                    <td>{{  res.payment_description }}</td>
+                </tr>
+
+            </table>
+
+        </div>
+
+    {% endif %}
+    {% endblock %}

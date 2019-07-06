@@ -1,0 +1,34 @@
+
+{% extends 'base.html' %}
+
+{% block body %}
+    <div align="center">
+            <table border="1">
+                <tr>
+                    <td colspan="3"><h3>Bike Details</h3></td>
+                </tr>
+              {% for rec in my_rec %}
+                <tr>
+                    <td>
+                        <form action="{% url 'edit_bike' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="bike_id" value="{{ rec.bike_id }}">{{ rec.bike_id }}
+                            <input type="submit" value="Update">
+                        </form>
+                    </td>
+
+                    <td>
+                        <form action="{% url 'del_bike' %}" method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="bike_id" value="{{ rec.bike_id }}">
+                            <input type="submit" value="Delete">
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+           </table>
+        {% if msg %}
+            <div> {{ msg }}</div>
+        {% endif %}
+    </div>
+    {% endblock %}
